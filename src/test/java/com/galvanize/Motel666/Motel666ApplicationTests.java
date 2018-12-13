@@ -61,5 +61,19 @@ public class Motel666ApplicationTests {
 		verifyNoMoreInteractions(motelRepo);
 
 	}
+
+	@Test
+	public void test_getAllbyTTNoCrud() throws Exception {
+		MotelEntity objf = new MotelEntity();
+		when(motelRepo.save(objf)).thenReturn(objf);
+		mocmvc.perform(MockMvcRequestBuilders.get("event/1544401072/1544401077"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andDo(print());
+
+		verify(motelRepo, times(1)).save(isA(MotelEntity.class));
+		verifyNoMoreInteractions(motelRepo);
+
+	}
 }
 

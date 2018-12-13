@@ -4,6 +4,7 @@ package com.galvanize.Motel666;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Query;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class MotelController {
             ret.add(MotelRepo.getBytimestamp(date));
         }
         return ret;
+
     }
 }
 
